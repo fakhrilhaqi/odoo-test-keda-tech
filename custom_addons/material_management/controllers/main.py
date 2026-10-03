@@ -1,12 +1,11 @@
-import json
 from odoo import http
 from odoo.http import request
 
 class MaterialManagement(http.Controller):
 
-    # get all materials
+    # get materials
     @http.route('/api/materials', type='json', auth='user', methods=['GET'])
-    def get_materials(self,material_type=None, **kwargs):
+    def get_materials(self, material_type=None, **kwargs):
         domain = []
         if material_type:
             domain.append(('type', '=', material_type))
